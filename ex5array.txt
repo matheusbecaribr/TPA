@@ -1,0 +1,61 @@
+Exercício 5: Escreva um programa que leia o nome de 10 alunos (vetor). Para cada aluno devem ser registradas 3 notas (matriz). Calcular a média das notas de cada aluno e armazenar emum vetor. Ao final deverá ser exibido na tela um relatório com os dados de todos os alunos (nome, notas, media) e também a informação se o aluno foi aprovado ou reprovado (média para aprovação 7,0). Para o caso de aprovado exibir todos os dados do aluno nacor azul, caso contrário exibir os dados na cor vermelha.(Dica: usar os comandos Console.ForegroundColor = ConsoleColor.Red e Console.ForegroundColor = ConsoleColor.Blue);
+
+using System;
+
+class Program {
+  public static int Fibonacci(int n) {
+    int a = 0;
+    int b = 1;
+    for (int i = 0; i < n; i++) {
+      int temp = a;
+      a = b;
+      b = temp + b;
+    }
+    return a;
+  }
+
+  static void Main() {
+    string[] nomes = new string[10];
+    decimal[,] notas = new decimal[10,4];
+
+    for (int i = 0; i < 10; i++) {
+      Console.WriteLine("Informe o nome do aluno: "+i);
+      nomes[i] = Console.ReadLine();
+    };
+    Console.WriteLine("\n");
+    Console.WriteLine("nomes dos alunos cadastrados: ");  
+    Console.WriteLine("\n");
+    for (int i = 1; i < 11; i++) {
+      Console.WriteLine("o "+i+"º aluno se chama: "+nomes[i]);
+    };
+    Console.WriteLine("\n");
+          
+    for (int i = 0; i < 10; i++) {
+      notas[i,3] = 0 ;
+      Console.WriteLine("Digite 3 notas para "+nomes[i]);
+      for (int j = 0; j < 3; j++) {
+        notas[i,j] = decimal.Parse(Console.ReadLine());
+        notas[i,3] += notas[i,j];
+      };
+      Console.WriteLine("\n");
+      notas[i,3] /= 3;
+    };
+    Console.WriteLine();
+    Console.WriteLine("Nome         nota1  nota2  nota3  media");
+    for (int i = 0; i < 10; i++) {
+      Console.Write("{0,-11}",nomes[i]);
+      for (int j = 0; j < 4; j++) {
+        if (notas[i,j]>= 7) {
+          Console.ForegroundColor = ConsoleColor.Blue;
+        }
+        else {
+          Console.ForegroundColor = ConsoleColor.Red;
+        };
+        Console.Write("  {0,5:F2}",notas[i,j]);
+      };
+      Console.WriteLine();
+    };
+    
+   
+  }
+}
