@@ -1,0 +1,38 @@
+Exercício 2: Escreva um programa que leia o nome e o preço de 10 produtos. Logo após realizar o cadastro dos produtos, pedir para o usuário digitar um valor, no qual deverá ser realizada uma pesquisa e exibir apenas os produtos que possuem preço até o valor digitado pelo usuário.
+
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+
+  string[] nmproduto = new string[10];
+  double[] preço = new double[10];
+  int n, nf;
+  bool f;
+
+  for(n = 0; n < 10;n++){
+    Console.WriteLine("cadastre o {0}º produto:",n+1);
+    nmproduto[n]=Console.ReadLine();
+  }
+  Console.WriteLine();
+
+  int p;
+
+  for(p = 0; p < 10; p++){
+    Console.WriteLine("insira o valor do {0}º produto:",p+1);
+    preço[p]=double.Parse(Console.ReadLine());
+  }
+
+  Console.WriteLine("\n");
+
+  Console.WriteLine("Digite o valor máximo para filtragem dos produtos: ");
+  nf = int.Parse(Console.ReadLine());
+
+  Console.WriteLine("\n");
+
+  if(f = p < nf){
+    Console.WriteLine("Produtos mais em conta: " +f);
+  }
+  
+  }
+}
